@@ -1,9 +1,10 @@
 function draggable(motherId, dragTargetId) {
-    if (!motherId || !dragTargetId) {
-        return new Error('asd');
-    }
     const motherElement = document.querySelector('#' + motherId);
     const dragTargetElement = document.querySelector('#' + dragTargetId);
+    if (!motherElement || !dragTargetElement) {
+        return new Error('element is not defined');
+    }
+
     let dragged;
     dragTargetElement.draggable = true;
 
@@ -62,7 +63,7 @@ function draggable(motherId, dragTargetId) {
     });
 }
 
- 
+
 function sortable(motherId, dragTargetId) {
     if (!motherId || !dragTargetId) {
         return new Error('asd');
@@ -72,4 +73,5 @@ function sortable(motherId, dragTargetId) {
 
 window.addEventListener('DOMContentLoaded', function () {
     draggable('drag', 'draggable');
+    sortable('sort', 'draggable');
 });
